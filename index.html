@@ -22,22 +22,17 @@
 			margin: 0;
 		}
 		.leaflet-container {
-			height: 400px;
-			width: 600px;
-			max-width: 100%;
-			max-height: 100%;
+			height: 100%;
+			width: 100%;
 		}
 	</style>
 
-	
 </head>
 <body>
 
-
-
-<div id="map" style="width: 600px; height: 400px;"></div>
+	<header> <h1>Lindsay, Ontario</h1> </header>
+<div id="map"></div>
 <script>
-
 	const map = L.map('map').setView([51.505, -0.09], 13);
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -45,26 +40,31 @@
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-	const marker = L.marker([51.5, -0.09]).addTo(map)
-		.bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+	const marker = L.marker([44.35671, -78.74094]).addTo(map)
+		.bindPopup('This is Lindsay, Ontario').openPopup();
 
 	const circle = L.circle([51.508, -0.11], {
-		color: 'red',
-		fillColor: '#f03',
+		color: 'pink',
+		fillColor: 'pink',
 		fillOpacity: 0.5,
 		radius: 500
-	}).addTo(map).bindPopup('I am a circle.');
+	}).addTo(map).bindPopup('I am a pink circle.');
 
 	const polygon = L.polygon([
-		[51.509, -0.08],
-		[51.503, -0.06],
-		[51.51, -0.047]
-	]).addTo(map).bindPopup('I am a polygon.');
-
-	const popup = L.popup()
-		.setLatLng([51.513, -0.09])
-		.setContent('I am a standalone popup.')
-		.openOn(map);
+		[44.37457470969582, -78.78003568597244],
+		[44.38193628573641, -78.74724836362286],
+		[44.378378306213435, -78.74450178164594],
+		[44.37874638308727, -78.73694868120938],
+		[44.37985059982577, -78.73694868120938],
+		[44.38181360038665, -78.72905225802572],
+		[44.33726183346507, -78.70862455457231],
+		[44.33406949772597, -78.70536298847472],
+		[44.324982667874345, -78.74244184516323],
+		[44.33136815482172, -78.76046628938683],
+		[44.34315491978516, -78.76681776020847],
+		[44.34634676089203, -78.77522916751282],
+		[44.34941567498667, -78.76716108295558],
+	]).addTo(map).bindPopup('These are the approximate boundaries of Lindsay, Ontario.');
 
 	function onMapClick(e) {
 		popup
